@@ -1,4 +1,4 @@
-package com.epam.training.event_recorder;
+package com.epam.training.eventrecorder;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
