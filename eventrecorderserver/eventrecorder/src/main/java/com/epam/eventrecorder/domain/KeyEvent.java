@@ -2,12 +2,9 @@ package com.epam.eventrecorder.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,9 +17,6 @@ public class KeyEvent implements java.io.Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "keyset_id")
-    private Keyset keyset;
     @Column(length = 1, name = "keystroke")
     private String keystroke;
     @Column(length = EVENT_NAME_MAX_LENGTH, name = "eventname")
@@ -33,8 +27,7 @@ public class KeyEvent implements java.io.Serializable {
     public KeyEvent() {
     }
 
-    public KeyEvent(Keyset keyset, String keystroke, String eventname, Boolean instantaneous) {
-        this.keyset = keyset;
+    public KeyEvent(String keystroke, String eventname, Boolean instantaneous) {
         this.keystroke = keystroke;
         this.eventName = eventname;
         this.instantaneous = instantaneous;
@@ -46,14 +39,6 @@ public class KeyEvent implements java.io.Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Keyset getKeyset() {
-        return keyset;
-    }
-
-    public void setKeyset(Keyset keyset) {
-        this.keyset = keyset;
     }
 
     public String getKeystroke() {

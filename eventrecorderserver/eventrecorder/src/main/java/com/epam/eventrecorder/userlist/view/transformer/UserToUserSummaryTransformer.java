@@ -3,9 +3,12 @@ package com.epam.eventrecorder.userlist.view.transformer;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.epam.eventrecorder.domain.User;
 import com.epam.eventrecorder.userlist.view.model.UserSummary;
 
+@Component
 public class UserToUserSummaryTransformer {
 
     public List<UserSummary> transformUsersToSummaries(List<User> users) {

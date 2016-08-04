@@ -1,11 +1,6 @@
 package com.epam.eventrecorder.domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,18 +36,8 @@ public class Experiment implements java.io.Serializable {
     private Long trialLength;
     @Column(length = EVENT_MODE_MAX_LENGTH, name = "eventmode")
     private String eventMode;
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "experiment")
-    private Set<Trial> trials = new HashSet<>(0);
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
-    public Experiment() {
-    }
-
-    public Experiment(User user) {
-        this.user = user;
-    }
+    @OneToMany
+    private List<Trial> trials;
 
     public Integer getId() {
         return id;
@@ -102,34 +87,12 @@ public class Experiment implements java.io.Serializable {
         this.eventMode = eventMode;
     }
 
-    public Set<Trial> getTrials() {
+    public List<Trial> getTrials() {
         return trials;
     }
 
-    public void setTrials(Set<Trial> trials) {
+    public void setTrials(List<Trial> trials) {
         this.trials = trials;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public List<Trial> getTrialList() {
-        if (getTrials() == null) {
-            return null;
-        }
-        List<Trial> trialList = new ArrayList(getTrials());
-        Collections.sort(trialList, new Comparator<Trial>() {
-            @Override
-            public int compare(Trial t, Trial t1) {
-                return (t.getId() - t1.getId() < 0L) ? -1 : ((t.getId() - t1.getId() > 0L) ? 1 : 0);
-            }
-        });
-        return trialList;
     }
 
     @Override

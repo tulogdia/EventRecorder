@@ -39,38 +39,38 @@ public class Event implements java.io.Serializable {
     // "OVERLAP", "ATEND" or "ATSTART" mode) and for non-instantaneous events in
     // "ATEND" or "ATSTART" mode
     // for non-instantaneous "OVERLAP" events see the next constructor
-    public Event(String name, Boolean instant, Long time, Trial trial) {
-        this.noInTrial = noInTrial;
-        this.name = name;
-        this.instant = instant;
-        if (instant) {
-            this.startTime = time;
-            this.endTime = time;
-        } else {
-            switch (trial.getExperiment().getEventMode()) {
-            case "ATEND":
-                this.startTime = null;
-                this.endTime = time;
-                break;
-            case "ATSTART":
-                this.startTime = time;
-                this.endTime = null;
-                break;
-            }
-        }
-        this.trial = trial;
-    }
+    // public Event(String name, Boolean instant, Long time, Trial trial) {
+    // this.noInTrial = noInTrial;
+    // this.name = name;
+    // this.instant = instant;
+    // if (instant) {
+    // this.startTime = time;
+    // this.endTime = time;
+    // } else {
+    // switch (trial.getExperiment().getEventMode()) {
+    // case "ATEND":
+    // this.startTime = null;
+    // this.endTime = time;
+    // break;
+    // case "ATSTART":
+    // this.startTime = time;
+    // this.endTime = null;
+    // break;
+    // }
+    // }
+    // this.trial = trial;
+    // }
 
     // use the following constructor for overlapping events, which are not
     // instantaneous
-    public Event(String name, Long startTime, Long endTime, Trial trial) {
-        this.noInTrial = noInTrial;
-        this.name = name;
-        this.instant = false;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.trial = trial;
-    }
+    // public Event(String name, Long startTime, Long endTime, Trial trial) {
+    // this.noInTrial = noInTrial;
+    // this.name = name;
+    // this.instant = false;
+    // this.startTime = startTime;
+    // this.endTime = endTime;
+    // this.trial = trial;
+    // }
 
     public Integer getId() {
         return id;

@@ -20,7 +20,7 @@ public class SpringDataSourceConfiguration {
 
     @Bean
     public DataSource dataSource() {
-        return new DriverManagerDataSource("jdbc:mysql://localhost:3306/eventrecorder", "root", "root");
+        return new DriverManagerDataSource("jdbc:mysql://localhost:3306/eventrecorderserver", "root", "root");
     }
 
     @Bean
@@ -38,7 +38,7 @@ public class SpringDataSourceConfiguration {
 
     Properties additionalProperties() {
         Properties properties = new Properties();
-        properties.setProperty("hibernate.hbm2ddl.auto", "validate");
+        properties.setProperty("hibernate.hbm2ddl.auto", "update");
         properties.setProperty("hibernate.show_sql", "true");
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         return properties;
