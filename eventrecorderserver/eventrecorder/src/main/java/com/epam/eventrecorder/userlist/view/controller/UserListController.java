@@ -20,7 +20,7 @@ public class UserListController {
     private UserDao userDao;
 
     @Autowired
-    UserSummaryTransformer userSummaryTransformer;
+    private UserSummaryTransformer userSummaryTransformer;
 
     @RequestMapping(value = "/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     List<UserSummary> users() {

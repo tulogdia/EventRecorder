@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class User implements java.io.Serializable {
 
-    public static final int NAME_MAX_LENGTH = 40;
+    public static final int NAME_MAX_LENGTH = 60;
 
     @Id
     @Column(name = "id")
