@@ -9,7 +9,7 @@ import com.epam.eventrecorder.domain.Keyset;
 import com.epam.eventrecorder.keysetlist.view.model.KeysetSummary;
 
 @Component
-public class KeysetToKeysetSummaryTransformer {
+public class KeysetSummaryTransformer {
 
     public List<KeysetSummary> transformKeysetsToSummaries(List<Keyset> keysets) {
         List<KeysetSummary> result = new ArrayList<>();

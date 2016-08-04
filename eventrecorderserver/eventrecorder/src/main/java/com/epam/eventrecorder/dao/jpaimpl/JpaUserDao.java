@@ -26,9 +26,8 @@ public class JpaUserDao implements UserDao {
     }
 
     @Override
-    public void saveUser(User user) {
-        // TODO Auto-generated method stub
-
+    public User saveUser(User user) {
+        return userRepository.save(user);
     }
 
     @Override

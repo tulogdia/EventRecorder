@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.epam.eventrecorder.dao.KeysetDao;
 import com.epam.eventrecorder.domain.Keyset;
 import com.epam.eventrecorder.keysetlist.view.model.KeysetSummary;
-import com.epam.eventrecorder.keysetlist.view.transform.KeysetToKeysetSummaryTransformer;
+import com.epam.eventrecorder.keysetlist.view.transform.KeysetSummaryTransformer;
 
 @RestController
 public class KeysetListController {
 
     @Autowired
-    KeysetToKeysetSummaryTransformer keysetSummaryTransformer;
+    KeysetSummaryTransformer keysetSummaryTransformer;
 
     @Autowired
     KeysetDao keysetDao;

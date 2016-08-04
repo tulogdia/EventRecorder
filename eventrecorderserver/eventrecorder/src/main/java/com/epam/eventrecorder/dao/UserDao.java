@@ -10,7 +10,7 @@ public interface UserDao {
 
     public User findUserById(Integer userId);
 
-    public void saveUser(User user);
+    public User saveUser(User user);
 
     public void deleteUser(User user);
 }

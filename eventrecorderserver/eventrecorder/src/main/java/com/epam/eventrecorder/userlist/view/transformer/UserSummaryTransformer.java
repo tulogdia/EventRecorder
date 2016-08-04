@@ -9,7 +9,7 @@ import com.epam.eventrecorder.domain.User;
 import com.epam.eventrecorder.userlist.view.model.UserSummary;
 
 @Component
-public class UserToUserSummaryTransformer {
+public class UserSummaryTransformer {
 
     public List<UserSummary> transformUsersToSummaries(List<User> users) {
         List<UserSummary> result = new ArrayList<>();
@@ -23,6 +23,13 @@ public class UserToUserSummaryTransformer {
         UserSummary result = new UserSummary();
         result.setId(user.getId());
         result.setName(user.getName());
+        return result;
+    }
+
+    public User transformUserSummaryToUser(UserSummary userSummary) {
+        User result = new User();
+        result.setId(userSummary.getId());
+        result.setName(userSummary.getName());
         return result;
     }
 
