@@ -2,7 +2,7 @@ package com.epam.eventrecorder.keysetlist.view.model;
 
 import java.util.List;
 
-import com.epam.eventrecorder.domain.KeyEvent;
+import com.epam.eventrecorder.keyevent.domain.KeyEvent;
 
 public class KeysetSummary {
     private Integer id;

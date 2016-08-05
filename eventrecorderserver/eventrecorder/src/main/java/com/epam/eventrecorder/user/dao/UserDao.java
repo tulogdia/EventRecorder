@@ -1,8 +1,8 @@
-package com.epam.eventrecorder.dao;
+package com.epam.eventrecorder.user.dao;
 
 import java.util.List;
 
-import com.epam.eventrecorder.domain.User;
+import com.epam.eventrecorder.user.domain.User;
 
 public interface UserDao {
 

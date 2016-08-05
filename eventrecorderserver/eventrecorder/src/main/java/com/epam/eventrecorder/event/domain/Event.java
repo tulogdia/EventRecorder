@@ -1,4 +1,4 @@
-package com.epam.eventrecorder.domain;
+package com.epam.eventrecorder.event.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.epam.eventrecorder.keyevent.domain.KeyEvent;
+import com.epam.eventrecorder.trial.domain.Trial;
 
 @Entity
 @Table(name = "event", catalog = "eventrecorder")

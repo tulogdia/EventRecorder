@@ -1,13 +1,13 @@
-package com.epam.eventrecorder.dao.jpaimpl;
+package com.epam.eventrecorder.keyset.dao.jpaimpl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.epam.eventrecorder.dao.KeysetDao;
-import com.epam.eventrecorder.dao.jparepository.KeysetRepository;
-import com.epam.eventrecorder.domain.Keyset;
+import com.epam.eventrecorder.keyset.dao.KeysetDao;
+import com.epam.eventrecorder.keyset.dao.repository.KeysetRepository;
+import com.epam.eventrecorder.keyset.domain.Keyset;
 
 @Repository("keysetDao")
 public class JpaKeysetDao implements KeysetDao {

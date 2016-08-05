@@ -1,6 +1,6 @@
-package com.epam.eventrecorder.dao;
+package com.epam.eventrecorder.trial.dao;
 
-import com.epam.eventrecorder.domain.Trial;
+import com.epam.eventrecorder.trial.domain.Trial;
 
 public interface TrialDao {
 

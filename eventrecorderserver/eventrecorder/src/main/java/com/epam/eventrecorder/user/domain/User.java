@@ -1,4 +1,4 @@
-package com.epam.eventrecorder.domain;
+package com.epam.eventrecorder.user.domain;
 
 import java.util.List;
 
@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.epam.eventrecorder.experiment.domain.Experiment;
+import com.epam.eventrecorder.keyset.domain.Keyset;
 
 /**
  *

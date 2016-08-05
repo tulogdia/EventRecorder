@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.epam.eventrecorder.dao.UserDao;
-import com.epam.eventrecorder.domain.User;
+import com.epam.eventrecorder.user.dao.UserDao;
+import com.epam.eventrecorder.user.domain.User;
 
 @RestController
 public class AddUserController {

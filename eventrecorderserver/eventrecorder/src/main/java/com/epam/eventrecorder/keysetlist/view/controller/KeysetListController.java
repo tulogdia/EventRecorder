@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.epam.eventrecorder.dao.KeysetDao;
-import com.epam.eventrecorder.domain.Keyset;
+import com.epam.eventrecorder.keyset.dao.KeysetDao;
+import com.epam.eventrecorder.keyset.domain.Keyset;
 import com.epam.eventrecorder.keysetlist.view.model.KeysetSummary;
 import com.epam.eventrecorder.keysetlist.view.transform.KeysetSummaryTransformer;
 

@@ -1,4 +1,4 @@
-package com.epam.eventrecorder.domain;
+package com.epam.eventrecorder.keyevent.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,8 +1,8 @@
-package com.epam.eventrecorder.dao;
+package com.epam.eventrecorder.keyset.dao;
 
 import java.util.List;
 
-import com.epam.eventrecorder.domain.Keyset;
+import com.epam.eventrecorder.keyset.domain.Keyset;
 
 public interface KeysetDao {
 

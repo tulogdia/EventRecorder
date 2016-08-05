@@ -14,7 +14,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@EnableJpaRepositories("com.epam.eventrecorder.dao.jparepository")
+@EnableJpaRepositories("com.epam.eventrecorder")
 @EnableTransactionManagement
 public class SpringDataSourceConfiguration {
 
@@ -27,7 +27,7 @@ public class SpringDataSourceConfiguration {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[] { "com.epam.eventrecorder.domain" });
+        em.setPackagesToScan(new String[] { "com.epam.eventrecorder" });
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);

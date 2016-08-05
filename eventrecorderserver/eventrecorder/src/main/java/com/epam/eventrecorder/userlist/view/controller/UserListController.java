@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.epam.eventrecorder.dao.UserDao;
-import com.epam.eventrecorder.domain.User;
+import com.epam.eventrecorder.user.dao.UserDao;
+import com.epam.eventrecorder.user.domain.User;
 import com.epam.eventrecorder.userlist.view.model.UserSummary;
 import com.epam.eventrecorder.userlist.view.transformer.UserSummaryTransformer;
 

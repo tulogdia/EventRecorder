@@ -1,4 +1,4 @@
-package com.epam.eventrecorder.domain;
+package com.epam.eventrecorder.experiment.domain;
 
 import java.util.List;
 
@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.epam.eventrecorder.keyset.domain.Keyset;
+import com.epam.eventrecorder.trial.domain.Trial;
 
 @Entity
 @Table(name = "experiment", catalog = "eventrecorder")

@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.epam.eventrecorder.domain.Keyset;
+import com.epam.eventrecorder.keyset.domain.Keyset;
 import com.epam.eventrecorder.keysetlist.view.model.KeysetSummary;
 
 @Component

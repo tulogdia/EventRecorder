@@ -1,4 +1,4 @@
-package com.epam.eventrecorder.domain;
+package com.epam.eventrecorder.trial.domain;
 
 import java.util.List;
 
@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.epam.eventrecorder.event.domain.Event;
 
 @Entity
 @Table(name = "trial", catalog = "eventrecorder")

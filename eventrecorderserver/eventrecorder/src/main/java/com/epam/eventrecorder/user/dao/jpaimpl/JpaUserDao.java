@@ -1,13 +1,13 @@
-package com.epam.eventrecorder.dao.jpaimpl;
+package com.epam.eventrecorder.user.dao.jpaimpl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.epam.eventrecorder.dao.UserDao;
-import com.epam.eventrecorder.dao.jparepository.UserRepository;
-import com.epam.eventrecorder.domain.User;
+import com.epam.eventrecorder.user.dao.UserDao;
+import com.epam.eventrecorder.user.dao.repository.UserRepository;
+import com.epam.eventrecorder.user.domain.User;
 
 @Repository("userDao")
 public class JpaUserDao implements UserDao {

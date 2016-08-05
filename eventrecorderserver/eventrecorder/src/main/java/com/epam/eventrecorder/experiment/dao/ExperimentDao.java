@@ -1,6 +1,6 @@
-package com.epam.eventrecorder.dao;
+package com.epam.eventrecorder.experiment.dao;
 
-import com.epam.eventrecorder.domain.Experiment;
+import com.epam.eventrecorder.experiment.domain.Experiment;
 
 public interface ExperimentDao {
     public void saveOrUpdateExperiment(Experiment experiment);
