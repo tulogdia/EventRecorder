@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,28 +13,25 @@ import javax.persistence.Table;
 import com.epam.eventrecorder.event.domain.Event;
 
 @Entity
-@Table(name = "trial", catalog = "eventrecorder")
+@Table
 public class Trial implements java.io.Serializable {
 
-    public static final int NAME_MAX_LENGTH = 50;
-    public static final int COMMENT_MAX_LENGTH = 100;
-
     @Id
-    @Column(name = "id")
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column(length = NAME_MAX_LENGTH, name = "name")
+    private Long id;
+    @Column(columnDefinition = "text")
     private String name;
-    @Column(length = COMMENT_MAX_LENGTH, name = "comment")
+    @Column(columnDefinition = "text")
     private String comment;
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "trial")
+    @OneToMany
     private List<Event> events;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

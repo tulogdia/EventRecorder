@@ -8,20 +8,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "keyevent", catalog = "eventrecorder")
+@Table
 public class KeyEvent implements java.io.Serializable {
 
-    public static final int EVENT_NAME_MAX_LENGTH = 20;
-
-    @Column(name = "id")
     @Id
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column(length = 1, name = "keystroke")
+    private Long id;
+    @Column(length = 1)
     private String keystroke;
-    @Column(length = EVENT_NAME_MAX_LENGTH, name = "eventname")
+    @Column(columnDefinition = "text")
     private String eventName;
-    @Column(name = "instantaneous")
+    @Column
     private Boolean instantaneous;
 
     public KeyEvent() {
@@ -33,11 +31,11 @@ public class KeyEvent implements java.io.Serializable {
         this.instantaneous = instantaneous;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,36 +16,32 @@ import com.epam.eventrecorder.keyset.domain.Keyset;
 import com.epam.eventrecorder.trial.domain.Trial;
 
 @Entity
-@Table(name = "experiment", catalog = "eventrecorder")
+@Table
 public class Experiment implements java.io.Serializable {
 
-    public static final int NAME_MAX_LENGTH = 200;
-    public static final int DESCR_MAX_LENGTH = 500;
-    public static final int EVENT_MODE_MAX_LENGTH = 10;
-
     @Id
-    @Column(name = "id")
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column(length = NAME_MAX_LENGTH, name = "name")
+    private Long id;
+    @Column(columnDefinition = "text")
     private String name;
-    @Column(length = DESCR_MAX_LENGTH, name = "description")
+    @Column(columnDefinition = "text")
     private String description;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "keyset_id")
+    @ManyToOne
+    @JoinColumn
     private Keyset keyset;
-    @Column(name = "triallength")
+    @Column
     private Long trialLength;
-    @Column(length = EVENT_MODE_MAX_LENGTH, name = "eventmode")
+    @Column(columnDefinition = "text")
     private String eventMode;
     @OneToMany
     private List<Trial> trials;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

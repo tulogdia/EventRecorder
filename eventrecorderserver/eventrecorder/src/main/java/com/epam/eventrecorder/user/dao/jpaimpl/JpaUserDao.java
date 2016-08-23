@@ -21,7 +21,7 @@ public class JpaUserDao implements UserDao {
     }
 
     @Override
-    public User findUserById(Integer userId) {
+    public User findUserById(Long userId) {
         return userRepository.findOne(userId);
     }
 
@@ -31,9 +31,8 @@ public class JpaUserDao implements UserDao {
     }
 
     @Override
-    public void deleteUser(User user) {
-        // TODO Auto-generated method stub
-
+    public void deleteUser(Long userId) {
+        userRepository.delete(userId);
     }
 
 }

@@ -8,9 +8,10 @@ public interface UserDao {
 
     public List<User> getUsers();
 
-    public User findUserById(Integer userId);
+    public User findUserById(Long userId);
 
     public User saveUser(User user);
 
-    public void deleteUser(User user);
+    public void deleteUser(Long userId);
+
 }

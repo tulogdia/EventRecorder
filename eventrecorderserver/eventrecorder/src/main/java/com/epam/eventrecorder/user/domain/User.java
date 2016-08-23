@@ -12,22 +12,16 @@ import javax.persistence.OneToMany;
 import com.epam.eventrecorder.experiment.domain.Experiment;
 import com.epam.eventrecorder.keyset.domain.Keyset;
 
-/**
- *
- * @author tulogdi.aron
- */
 @Entity
 public class User implements java.io.Serializable {
 
-    public static final int NAME_MAX_LENGTH = 60;
-
     @Id
-    @Column(name = "id")
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column(length = NAME_MAX_LENGTH, name = "name")
+    private Long id;
+    @Column(columnDefinition = "text")
     private String name;
-    @OneToMany(mappedBy = "user")
+    @OneToMany
     private List<Keyset> keysets;
     @OneToMany
     private List<Experiment> experiments;
@@ -39,11 +33,11 @@ public class User implements java.io.Serializable {
         this.name = name;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.epam.eventrecorder.user.dao.UserDao;
 import com.epam.eventrecorder.user.domain.User;
+import com.epam.eventrecorder.user.service.ModifyUserService;
 import com.epam.eventrecorder.userlist.view.model.UserSummary;
 import com.epam.eventrecorder.userlist.view.transformer.UserSummaryTransformer;
 
@@ -16,14 +16,14 @@ import com.epam.eventrecorder.userlist.view.transformer.UserSummaryTransformer;
 public class ModifyUserController {
 
     @Autowired
-    private UserDao userDao;
+    private ModifyUserService modifyUserService;
 
     @Autowired
     private UserSummaryTransformer userSummaryTransformer;
 
-    @RequestMapping(value = "/modifyUser", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/modifyUser", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     void modifyUser(@RequestBody UserSummary userSummary) {
         User user = userSummaryTransformer.transformUserSummaryToUser(userSummary);
-        userDao.saveUser(user);
+        modifyUserService.modifyUser(user);
     }
 }

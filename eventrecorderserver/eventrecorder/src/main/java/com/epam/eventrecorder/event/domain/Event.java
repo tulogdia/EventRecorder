@@ -2,7 +2,6 @@ package com.epam.eventrecorder.event.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,76 +9,38 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.epam.eventrecorder.keyevent.domain.KeyEvent;
 import com.epam.eventrecorder.trial.domain.Trial;
 
 @Entity
-@Table(name = "event", catalog = "eventrecorder")
+@Table
 public class Event implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
-    @Column(name = "nointrial")
+    @Column
+    private Long id;
+    @Column
     private Integer noInTrial;
-    @Column(length = KeyEvent.EVENT_NAME_MAX_LENGTH, name = "name")
+    @Column(columnDefinition = "text")
     private String name;
-    @Column(name = "instant")
+    @Column
     private Boolean instant;
-    @Column(name = "starttime")
+    @Column
     private Long startTime;
-    @Column(name = "endtime")
+    @Column
     private Long endTime;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "trial_id", nullable = false)
+    @ManyToOne
+    @JoinColumn
     private Trial trial;
 
     public Event() {
     }
 
-    // use the following constructor for instantaneous events (either in
-    // "OVERLAP", "ATEND" or "ATSTART" mode) and for non-instantaneous events in
-    // "ATEND" or "ATSTART" mode
-    // for non-instantaneous "OVERLAP" events see the next constructor
-    // public Event(String name, Boolean instant, Long time, Trial trial) {
-    // this.noInTrial = noInTrial;
-    // this.name = name;
-    // this.instant = instant;
-    // if (instant) {
-    // this.startTime = time;
-    // this.endTime = time;
-    // } else {
-    // switch (trial.getExperiment().getEventMode()) {
-    // case "ATEND":
-    // this.startTime = null;
-    // this.endTime = time;
-    // break;
-    // case "ATSTART":
-    // this.startTime = time;
-    // this.endTime = null;
-    // break;
-    // }
-    // }
-    // this.trial = trial;
-    // }
-
-    // use the following constructor for overlapping events, which are not
-    // instantaneous
-    // public Event(String name, Long startTime, Long endTime, Trial trial) {
-    // this.noInTrial = noInTrial;
-    // this.name = name;
-    // this.instant = false;
-    // this.startTime = startTime;
-    // this.endTime = endTime;
-    // this.trial = trial;
-    // }
-
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

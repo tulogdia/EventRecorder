@@ -17,28 +17,26 @@ import com.epam.eventrecorder.keyevent.domain.KeyEvent;
 import com.epam.eventrecorder.user.domain.User;
 
 @Entity
-@Table(name = "keyset", catalog = "eventrecorder")
+@Table
 public class Keyset implements java.io.Serializable {
-
-    public static final int NAME_MAX_LENGTH = 100;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
-    @Column(length = NAME_MAX_LENGTH, name = "name")
+    @Column
+    private Long id;
+    @Column(columnDefinition = "text")
     private String name;
     @OneToMany(fetch = FetchType.EAGER)
     private List<KeyEvent> keyEvents;
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn
     private User user;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

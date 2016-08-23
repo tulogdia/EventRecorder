@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.epam.eventrecorder.user.dao.UserDao;
 import com.epam.eventrecorder.user.domain.User;
+import com.epam.eventrecorder.user.service.UserListService;
 import com.epam.eventrecorder.userlist.view.model.UserSummary;
 import com.epam.eventrecorder.userlist.view.transformer.UserSummaryTransformer;
 
@@ -17,14 +17,14 @@ import com.epam.eventrecorder.userlist.view.transformer.UserSummaryTransformer;
 public class UserListController {
 
     @Autowired
-    private UserDao userDao;
+    private UserListService userListService;
 
     @Autowired
     private UserSummaryTransformer userSummaryTransformer;
 
     @RequestMapping(value = "/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     List<UserSummary> users() {
-        List<User> users = userDao.getUsers();
+        List<User> users = userListService.getUsers();
         return userSummaryTransformer.transformUsersToSummaries(users);
     }
 }
