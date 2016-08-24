@@ -13,7 +13,6 @@ public class AddUserService {
     UserDao userDao;
 
     public void addUser(String name) {
-        System.out.println("User added with name " + name);
         User user = new User();
         user.setName(name);
         userDao.saveUser(user);

@@ -17,7 +17,6 @@ public class DeleteUserController {
 
     @RequestMapping(value = "/deleteUser", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE)
     void deleteUser(@RequestBody Long userId) {
-        System.out.println("Delete user by id: " + userId);
         deleteUserService.deleteUser(userId);
     }
 

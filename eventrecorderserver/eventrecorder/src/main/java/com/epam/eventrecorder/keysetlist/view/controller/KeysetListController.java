@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.epam.eventrecorder.keyset.dao.KeysetDao;
 import com.epam.eventrecorder.keyset.domain.Keyset;
+import com.epam.eventrecorder.keyset.service.KeysetListService;
 import com.epam.eventrecorder.keysetlist.view.model.KeysetSummary;
 import com.epam.eventrecorder.keysetlist.view.transform.KeysetSummaryTransformer;
 
@@ -18,14 +18,14 @@ import com.epam.eventrecorder.keysetlist.view.transform.KeysetSummaryTransformer
 public class KeysetListController {
 
     @Autowired
-    KeysetSummaryTransformer keysetSummaryTransformer;
+    private KeysetListService keysetListService;
 
     @Autowired
-    KeysetDao keysetDao;
+    private KeysetSummaryTransformer keysetSummaryTransformer;
 
     @RequestMapping(value = "/keysets@{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    List<KeysetSummary> keysets(@PathVariable Integer userId) {
-        List<Keyset> keysets = keysetDao.getKeysetByUserId(userId);
+    List<KeysetSummary> keysets(@PathVariable Long userId) {
+        List<Keyset> keysets = keysetListService.getKeysetByUserId(userId);
         return keysetSummaryTransformer.transformKeysetsToSummaries(keysets);
     }
 

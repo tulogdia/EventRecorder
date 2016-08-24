@@ -16,18 +16,18 @@ public class JpaKeysetDao implements KeysetDao {
     private KeysetRepository keysetRepository;
 
     @Override
-    public List<Keyset> getKeysetByUserId(Integer userId) {
+    public List<Keyset> getKeysetByUserId(Long userId) {
         return keysetRepository.findAllByUser_Id(userId);
     }
 
     @Override
-    public void deleteKeyset(Keyset ks) {
+    public void deleteKeyset(Keyset keyset) {
         // TODO Auto-generated method stub
 
     }
 
     @Override
-    public void saveOrUpdateKeyset(Keyset ks) {
+    public void saveKeyset(Keyset keyset) {
         // TODO Auto-generated method stub
 
     }

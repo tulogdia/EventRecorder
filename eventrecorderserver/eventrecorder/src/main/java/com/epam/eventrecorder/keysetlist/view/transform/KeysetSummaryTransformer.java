@@ -27,4 +27,12 @@ public class KeysetSummaryTransformer {
         return result;
     }
 
+    public Keyset transformSummaryToKeyset(KeysetSummary keysetSummary) {
+        Keyset result = new Keyset();
+        result.setId(keysetSummary.getId());
+        result.setName(keysetSummary.getName());
+        result.setKeyEvents(keysetSummary.getKeyEvents());
+        return result;
+    }
+
 }

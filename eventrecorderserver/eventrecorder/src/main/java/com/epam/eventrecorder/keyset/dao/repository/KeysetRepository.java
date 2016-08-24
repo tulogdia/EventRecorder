@@ -6,10 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.epam.eventrecorder.keyset.domain.Keyset;
 
-public interface KeysetRepository extends CrudRepository<Keyset, Integer> {
+public interface KeysetRepository extends CrudRepository<Keyset, Long> {
 
-    @Override
-    Keyset findOne(Integer Id);
-
-    List<Keyset> findAllByUser_Id(Integer userId);
+    List<Keyset> findAllByUser_Id(Long userId);
 }

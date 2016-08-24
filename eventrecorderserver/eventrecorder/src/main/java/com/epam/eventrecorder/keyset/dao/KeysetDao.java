@@ -6,9 +6,9 @@ import com.epam.eventrecorder.keyset.domain.Keyset;
 
 public interface KeysetDao {
 
-    public List<Keyset> getKeysetByUserId(Integer userId);
+    public List<Keyset> getKeysetByUserId(Long userId);
 
-    public void deleteKeyset(Keyset ks);
+    public void deleteKeyset(Keyset keyset);
 
-    public void saveOrUpdateKeyset(Keyset ks);
+    public void saveKeyset(Keyset keyset);
 }
